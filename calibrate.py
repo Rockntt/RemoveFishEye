@@ -2,6 +2,8 @@ from __future__ import print_function
 import numpy as np
 import cv2
 #from common import splitfn
+import os
+
 def splitfn(file_path):
 
     file_path_parts = file_path.split(sep=os.sep)
@@ -9,7 +11,6 @@ def splitfn(file_path):
     file_name = file_path_parts[-1]
     file_name_parts = file_name.split(sep='.')
     return _path, file_name_parts[0], file_name_parts[1]
-import os
 
 if __name__ == '__main__':
     import sys
@@ -25,7 +26,8 @@ if __name__ == '__main__':
     else:
         img_mask = img_mask[0]
 
-    img_names = ["calibrate_dir/img1.png", "calibrate_dir/img2.png", "calibrate_dir/img3.png", "calibrate_dir/img4.png"]
+    img_names = ["calibrate_dir/img1.png", "calibrate_dir/img2.png", "calibrate_dir/img3.png", "calibrate_dir/img4.png"]\
+
     debug_dir = args.get('--debug')
     if not os.path.isdir(debug_dir):
         os.mkdir(debug_dir)
@@ -67,5 +69,6 @@ if __name__ == '__main__':
     print("\nRMS:", rms)
     print("camera matrix:\n", camera_matrix)
     print("distortion coefficients: ", dist_coefs.ravel())
+    print("\nPut them in undistort_images.py, lines 29-32, check your paths and run undistort_images.py")
 
     cv2.destroyAllWindows()

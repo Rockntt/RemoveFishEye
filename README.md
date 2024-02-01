@@ -3,4 +3,4 @@
 3. Put these parameters into the ln 29-32 array as I did with mine (of my test images)
 4. Put your distorted images into the /frames directory or change your path 
 5. In addition, you may change path of saving your images on the 27th line.
-6. Run undistort_images.py and wait until it ends it's work.
+6. Run undistort_images.py and wait until it ends it's work in /undist directory.

@@ -56,5 +56,5 @@ for img_found in img_names_undistort:
     #outfile = img_names_undistort + '_undistorte.png'
     # print('Undistorted image written to: %s' % full_name)
     cv2.imwrite(full_name, dst)
-    print(f'Processing... {i}/{len(file_list)}')
     i = i + 1
+    print(f'Processing... {i}/{len(file_list)}')
