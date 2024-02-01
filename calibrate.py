@@ -1,8 +1,9 @@
 from __future__ import print_function
 import numpy as np
 import cv2
-#from common import splitfn
 import os
+import sys
+import getopt
 
 def splitfn(file_path):
 
@@ -13,10 +14,6 @@ def splitfn(file_path):
     return _path, file_name_parts[0], file_name_parts[1]
 
 if __name__ == '__main__':
-    import sys
-    import getopt
-    from glob import glob
-
     args, img_mask = getopt.getopt(sys.argv[1:], '', ['debug=', 'square_size='])
     args = dict(args)
     args.setdefault('--debug', '/')
@@ -41,7 +38,6 @@ if __name__ == '__main__':
     obj_points = []
     img_points = []
     h, w = 0, 0
-    img_names_undistort = []
     for fn in img_names:
         print('processing %s... ' % fn, end='')
         img = cv2.imread(fn, 0)
@@ -56,7 +52,7 @@ if __name__ == '__main__':
             cv2.cornerSubPix(img, corners, (5, 5), (-1, -1), term)
 
         if not found:
-            print('chessboard not found')
+            print('check board not found')
             continue
 
         img_points.append(corners.reshape(-1, 2))
